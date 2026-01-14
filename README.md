@@ -1,10 +1,10 @@
-# 🍷 Multi-Class Wine Quality Prediction
+# 🍷 Wine Quality Prediction
 
 ---
 
 ## 📌 Project Overview
 
-This project transforms a traditional regression problem (predicting a 0-10 wine score) into a **Strategic Classification Problem**. By segmenting wines into five distinct quality categories—from "Low" to "Very High"—this model provides actionable insights for inventory pricing and quality control.
+This project is a **Classification model**. By segmenting wines into five distinct quality categories from "Low" to "Very High" this model provides actionable insights for inventory pricing and quality control.
 
 ---
 
