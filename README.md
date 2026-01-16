@@ -63,7 +63,10 @@ We utilized an **Ensemble-first approach** to compare how different architecture
 
 ### Validation Strategy: 5-Fold Cross-Validation
 
-To ensure the model works on unseen data, we implemented **Stratified K-Fold Cross-Validation**. This process:Maintained Class Ratios: Ensured each test "fold" had a fair representation of all wine qualities. Confirmed Stability: Achieved a consistent performance margin ($+/- 5\%$), proving the system is robust enough for real-world manufacturing environments.
+To ensure the model works on unseen data, we implemented **Stratified K-Fold Cross-Validation**. 
+This process:
+**Maintained Class Ratios:** Ensured each test "fold" had a fair representation of all wine qualities. 
+**Confirmed Stability:** Achieved a consistent performance margin ($+/- 5\%$), proving the system is robust enough for real-world manufacturing environments.
 
 ---
 
