@@ -19,29 +19,62 @@ This project is a **Classification model**. By segmenting wines into five distin
 
 ## 🛠️ Technical Workflow
 
-### 1. Strategic Split
+### 1. Data Cleaning & Feature Engineering
 
-- Split the master dataframe into two distinct data pipelines (`df_red` and `df_white`). This allows the models to learn the unique chemical benchmarks for each color (e.g., higher Volatile Acidity tolerance in Reds vs. Whites).
+- **Strategic Binning:** Transformed raw 0-10 scores into 5 business-relevant tiers: `Low`, `Medium Low`, `Medium High`, `High`, and `Very High`.
+- **Multicollinearity Management:** Dropped `Residual Sugar` to prevent redundancy with `Density`, ensuring a cleaner feature set.
+- **Label Encoding:** Converted categorical tiers into numerical labels for model compatibility.
 
-### 2. Feature & Target Engineering
+### 2. The "Leakage" Resolution
 
-- **Cardinality Reduction:** Transformed the 0-10 scale into 5 meaningful business bins using `pd.cut`:
-  - `Low` (0-4), `Medium Low` (4-5), `Medium High` (5-6), `High` (6-7), `Very High` (7-10).
-- **Label Encoding:** Applied `LabelEncoder` to transform categorical quality tiers into numerical vectors.
+- **Critical Discovery:** Identified initial 100% accuracy as **Data Leakage** (the model was "cheating" by seeing the original quality score).
+- **The Fix:** Stripped all target-related data, forcing the model to rely solely on **pure physicochemical benchmarks**.
 
-### 3. Data Preprocessing
+### 3. Advanced Preprocessing
 
-- **Normalization:** Applied **MinMaxScaler** separately to each pipeline. This ensures that the feature scales are optimized based on the specific ranges of each wine type.
+- **Normalization:** Applied `MinMaxScaler` and `StandardScaler` to handle varying feature magnitudes (e.g., Chlorides vs. Total Sulfur Dioxide).
+- **Class Balancing (SMOTE):** Addressed the rarity of "Very High" quality wines (imbalanced classes) by synthetically oversampling minority classes using SMOTE (Synthetic Minority Over-sampling Technique). This expanded the training set from **1,279 to 2,970 samples**.
 
 ---
 
 ## 🔬 Modeling & Performance
 
-### Algorithm: K-Nearest Neighbors (KNN)
+We utilized an **Ensemble-first approach** to compare how different architectures handled the chemical complexity of each wine type.
 
-We deployed separate KNN instances for Red and White wines, optimizing the $K$ factor for each to achieve maximum precision.
+### 🍷 Red Wine Final Results
 
-| Model                     | Accuracy    | Strategy                             |
-| :------------------------ | :---------- | :----------------------------------- |
-| **White Wine Classifier** | **94.69%**  | Optimized for acidity/sugar balance. |
-| **Red Wine Classifier**   | **93.12%%** | Optimized for tannin/pH stability.   |
+| Model              | Result            | Strategic Insight                                           |
+| :----------------- | :---------------- | :---------------------------------------------------------- |
+| **Random Forest**  | **0.405 ($R^2$)** | **Best Regressor:** Balanced chemical variance effectively. |
+| **KNN Classifier** | **58.49% (Acc)**  | **High Stability:** Confirmed via Stratified K-Fold.        |
+| **SMOTE Impact**   | **0.316 ($R^2$)** | **Fairness:** Improved prediction on rare premium tiers.    |
+
+### 🥂 White Wine Final Results
+
+| Model              | Result            | Strategic Insight                                                |
+| :----------------- | :---------------- | :--------------------------------------------------------------- |
+| **Random Forest**  | **0.461 ($R^2$)** | **Top Performer:** High predictability in acidity/sugar balance. |
+| **KNN Classifier** | **57.35% (Acc)**  | Reliable baseline for high-volume inventory sorting.             |
+| **SMOTE Impact**   | **0.410 ($R^2$)** | **Robustness:** Successfully handled massive sample increase.    |
+
+### Validation Strategy: 5-Fold Cross-Validation
+
+To ensure the model works on unseen data, we implemented **Stratified K-Fold Cross-Validation**. This confirmed a mean accuracy of **58.5% (+/- 5%)** for the KNN model, proving the system is stable enough for real-world manufacturing environments.
+
+---
+
+## 🚀 Tech Stack
+
+### Languages & Libraries
+
+- **Python 3.x**
+- **Pandas & NumPy:** Data manipulation and matrix operations.
+- **Scikit-Learn:** Core ML library for scaling, splitting, and modeling.
+- **Imbalanced-Learn (SMOTE):** For handling minority class distribution.
+- **Matplotlib & Seaborn:** For feature importance and correlation heatmaps.
+
+### Machine Learning Techniques
+
+- **Ensemble Methods:** Random Forest, AdaBoost, Gradient Boosting, Bagging.
+- **Clustering/Proximity:** K-Nearest Neighbors (KNN).
+- **Optimization:** Hyperparameter tuning (max_depth, n_estimators), Stratified K-Fold, and SMOTE.
