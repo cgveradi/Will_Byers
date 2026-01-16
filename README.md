@@ -7,6 +7,10 @@
 This project is a **Classification model**. By segmenting wines into five distinct quality categories from "Low" to "Very High" this model provides actionable insights for inventory pricing and quality control.
 
 ---
+The presentation is available [here](https://docs.google.com/presentation/d/17qJ-Mj6QyY_XEBmsvW4mLutr-CmPJlt_RGi0PgDfKW0/edit?usp=sharing).
+---
+Trello dashboard is available [here](https://trello.com/b/Ik4K4H4w/ml-project).
+---
 
 ## 📊 The Data
 
@@ -43,23 +47,23 @@ We utilized an **Ensemble-first approach** to compare how different architecture
 
 ### 🍷 Red Wine Final Results
 
-| Model              | Result            | Strategic Insight                                           |
+| Model              | Result (Accuracy)            | Strategic Insight                                           |
 | :----------------- | :---------------- | :---------------------------------------------------------- |
-| **Random Forest**  | **0.405 ($R^2$)** | **Best Regressor:** Balanced chemical variance effectively. |
-| **KNN Classifier** | **58.49% (Acc)**  | **High Stability:** Confirmed via Stratified K-Fold.        |
-| **SMOTE Impact**   | **0.316 ($R^2$)** | **Fairness:** Improved prediction on rare premium tiers.    |
+| **Random Forest (Tuned)**  | **68.2%** | **Top Performer:** Effectively mapped complex chemical variances. |
+| **KNN Classifier** | **58.5%**  | **Stability:** Established a solid, low-variance baseline.        |
+| **SMOTE Impact**   | **Balanced** | **Fairness:** Improved prediction on rare premium tiers.    |
 
 ### 🥂 White Wine Final Results
 
-| Model              | Result            | Strategic Insight                                                |
+| Model              | Result (Accuracy)            | Strategic Insight                                                |
 | :----------------- | :---------------- | :--------------------------------------------------------------- |
-| **Random Forest**  | **0.461 ($R^2$)** | **Top Performer:** High predictability in acidity/sugar balance. |
-| **KNN Classifier** | **57.35% (Acc)**  | Reliable baseline for high-volume inventory sorting.             |
-| **SMOTE Impact**   | **0.410 ($R^2$)** | **Robustness:** Successfully handled massive sample increase.    |
+| **Random Forest (Tuned)**  | **70.4%** | **Top Performer:** High predictability in acidity/sugar balance. |
+| **KNN Classifier** | **57.4%**  | **Reliable:** Effective for high-volume automated sorting.            |
+| **SMOTE Impact**   | **Robust** | **Depth:** Handled massive sample increases without overfitting.    |
 
 ### Validation Strategy: 5-Fold Cross-Validation
 
-To ensure the model works on unseen data, we implemented **Stratified K-Fold Cross-Validation**. This confirmed a mean accuracy of **58.5% (+/- 5%)** for the KNN model, proving the system is stable enough for real-world manufacturing environments.
+To ensure the model works on unseen data, we implemented **Stratified K-Fold Cross-Validation**. This process:Maintained Class Ratios: Ensured each test "fold" had a fair representation of all wine qualities. Confirmed Stability: Achieved a consistent performance margin ($+/- 5\%$), proving the system is robust enough for real-world manufacturing environments.
 
 ---
 
