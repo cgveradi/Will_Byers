@@ -7,7 +7,7 @@
 This project is a **Classification model**. By segmenting wines into five distinct quality categories from "Low" to "Very High" this model provides actionable insights for inventory pricing and quality control.
 
 ---
-The presentation is available [here](https://docs.google.com/presentation/d/17qJ-Mj6QyY_XEBmsvW4mLutr-CmPJlt_RGi0PgDfKW0/edit?usp=sharing).
+The presentation is available [here](https://docs.google.com/presentation/d/1y5WGjYksmNWpBodTziboByjCvI9nfiNljwo9HiaGIms/edit?usp=sharing).
 ---
 Trello dashboard is available [here](https://trello.com/b/Ik4K4H4w/ml-project).
 ---
