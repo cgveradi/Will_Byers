@@ -39,7 +39,7 @@ This project is a **Classification model**. By segmenting wines into five distin
 
 ## 🔬 Modeling & Performance
 
-We utilized an **Ensemble-first approach** to compare how different architectures handled the chemical complexity of each wine type.To ensure the model works on unseen data, we implemented 5-Fold Stratified Cross-Validation, maintaining class ratios and ensuring a consistent performance margin ($\pm 5\%$).
+We utilized an **Ensemble-first approach** to compare how different architectures handled the chemical complexity of each wine type. To ensure the model works on unseen data, we implemented **5-Fold Stratified Cross-Validation**, maintaining class ratios and ensuring a consistent performance margin ($\pm 5\%$).
 
 ### 🍷 Red Wine Final Results
 
