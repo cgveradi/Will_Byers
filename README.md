@@ -7,10 +7,6 @@
 This project is a **Classification model**. By segmenting wines into five distinct quality categories from "Low" to "Very High" this model provides actionable insights for inventory pricing and quality control.
 
 ---
-The presentation is available [here](https://docs.google.com/presentation/d/1y5WGjYksmNWpBodTziboByjCvI9nfiNljwo9HiaGIms/edit?usp=sharing).
----
-Trello dashboard is available [here](https://trello.com/b/Ik4K4H4w/ml-project).
----
 
 ## 📊 The Data
 
@@ -84,3 +80,8 @@ A key challenge in this dataset was the heavy concentration of "mid-range" wines
 - **Ensemble Methods:** Random Forest, AdaBoost, Gradient Boosting, Bagging.
 - **Clustering/Proximity:** K-Nearest Neighbors (KNN).
 - **Optimization:** Hyperparameter tuning (max_depth, n_estimators), Stratified K-Fold, and SMOTE.
+---
+The presentation is available [here](https://docs.google.com/presentation/d/1y5WGjYksmNWpBodTziboByjCvI9nfiNljwo9HiaGIms/edit?usp=sharing).
+---
+Trello dashboard is available [here](https://trello.com/b/Ik4K4H4w/ml-project).
+---
