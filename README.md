@@ -43,7 +43,7 @@ Trello dashboard is available [here](https://trello.com/b/Ik4K4H4w/ml-project).
 
 ## 🔬 Modeling & Performance
 
-We utilized an **Ensemble-first approach** to compare how different architectures handled the chemical complexity of each wine type.
+We utilized an **Ensemble-first approach** to compare how different architectures handled the chemical complexity of each wine type.To ensure the model works on unseen data, we implemented 5-Fold Stratified Cross-Validation, maintaining class ratios and ensuring a consistent performance margin ($\pm 5\%$).
 
 ### 🍷 Red Wine Final Results
 
@@ -61,11 +61,11 @@ We utilized an **Ensemble-first approach** to compare how different architecture
 | **KNN Classifier** | **57.4%**  | **Reliable:** Effective for high-volume automated sorting.            |
 | **SMOTE Impact**   | **Robust** | **Depth:** Handled massive sample increases without overfitting.    |
 
-### Validation Strategy: 5-Fold Cross-Validation
+### ⚖️ Handling Class Imbalance (SMOTE)
 
-To ensure the model works on unseen data, we implemented **Stratified K-Fold Cross-Validation**. 
-- **Maintained Class Ratios:** Ensured each test "fold" had a fair representation of all wine qualities. 
-- **Confirmed Stability:** Achieved a consistent performance margin (+/-5%), proving the system is robust enough for real-world manufacturing environments.
+A key challenge in this dataset was the heavy concentration of "mid-range" wines (Quality 5 and 6). To address this, we implemented SMOTE (Synthetic Minority Over-sampling Technique) instead of undersampling.
+- **Why SMOTE?:** We chose this to preserve the rich chemical information within the majority classes. Undersampling would have resulted in a significant loss of data. 
+- **The Result:** This approach allowed us to effectively boost the F1-score for the minority classes (high-quality and low-quality wines), ensuring the model identifies "Premium" wines rather than just guessing the most frequent class.
 
 ---
 
